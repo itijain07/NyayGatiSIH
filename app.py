@@ -35,30 +35,46 @@ st.markdown("""
         padding: 1.4rem;
         border: 1px solid #dce3ec;
         border-radius: 14px;
-        background: white;
+        background: #ffffff;
+        color: #172033;
         min-height: 180px;
         box-shadow: 0 2px 8px rgba(0,0,0,.04);
+    }
+    .module-card h2, .module-card p {
+        color: #172033 !important;
     }
     .metric-card {
         padding: 1rem;
         border: 1px solid #dce3ec;
         border-radius: 12px;
-        background: white;
+        background: #ffffff;
+        color: #172033;
+    }
+    .metric-card h3, .metric-card div {
+        color: #172033 !important;
     }
     .demo {
         background: #fff7df;
+        color: #4a3a00;
         border-left: 5px solid #e0a800;
         padding: .8rem 1rem;
         border-radius: 6px;
         margin: .8rem 0 1.2rem;
     }
+    .demo b, .demo p {
+        color: #4a3a00 !important;
+    }
     .disclaimer {
         background: #eef4fb;
+        color: #18324d;
         border-left: 5px solid #1769aa;
         padding: .8rem 1rem;
         border-radius: 6px;
     }
-    .small-muted { color: #64748b; font-size: .9rem; }
+    .disclaimer b, .disclaimer p {
+        color: #18324d !important;
+    }
+    .small-muted { color: #64748b !important; font-size: .9rem; }
 </style>
 """, unsafe_allow_html=True)
 
@@ -283,7 +299,7 @@ st.sidebar.caption("Intelligent Judicial Case Management")
 page = st.sidebar.radio(
     "Navigation",
     ["Home", "Case Duration Prediction", "Court + Case Analytics",
-     "Intelligent Schedule Generator", "About NyayGati"]
+     "Intelligent Schedule Generator"]
 )
 st.sidebar.markdown("---")
 st.sidebar.caption("Prototype • Demo/Simulated Data")
@@ -494,64 +510,3 @@ elif page == "Intelligent Schedule Generator":
         The final scheduling decision remains with the court administration/judiciary.
         </div>
         """, unsafe_allow_html=True)
-
-# -------------------------- About ------------------------------
-else:
-    st.title("ℹ️ About NyayGati")
-
-    st.markdown("""
-    ### Problem
-
-    Courts handle large numbers of pending cases and delays. Citizens may not have
-    a simple way to understand the approximate duration of a case, while court
-    administration needs better visibility into backlog and delay patterns.
-
-    ### Solution
-
-    **NyayGati** is a judicial decision-support prototype built around three connected ideas:
-
-    **1. Predict** — estimate approximate case duration using similar historical/demo cases.
-
-    **2. Analyze** — show court + case-type analytics such as pending cases, disposed cases,
-    hearing gaps, backlog, adjournments and trends.
-
-    **3. Optimize** — simulate a proposed schedule using pending-case information and
-    available court resources.
-
-    ### Data
-
-    This prototype uses **simulated/demo data**. It does not use live court records or
-    claim that the displayed statistics are actual Saket, Patiala House or Rohini court data.
-
-    A future system could integrate authorized/public sources such as **NJDG and e-Courts**,
-    subject to data availability, permissions and access.
-
-    ### Technology
-
-    - Python
-    - Streamlit
-    - Pandas
-    - NumPy
-    - Matplotlib
-
-    ### Prototype scope
-
-    The prediction module uses predefined demo outputs instead of a complicated machine
-    learning model. The schedule generator uses a simple rule-based simulation so that
-    the logic is transparent and easy to explain.
-
-    ### Core idea
-
-    **PREDICT → ANALYZE → OPTIMIZE**
-
-    NyayGati is intended to support administrative understanding and simulation.
-    It does not replace judicial decisions.
-    """)
-
-    st.markdown("""
-    <div class="disclaimer">
-    <b>Prototype disclaimer:</b> Predictions and proposed schedules shown by NyayGati
-    are simulated and should not be treated as actual court decisions, guaranteed
-    disposal dates, or live court statistics.
-    </div>
-    """, unsafe_allow_html=True)
